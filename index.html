@@ -9,204 +9,9 @@
     <meta name="description" content="Choose a bot to chat to about troubling topics" />
     <meta name="author" content="GLF" />
 
-    <!-- CSS. Makes everything on the page look pretty -->
-    <style>
-      body {
-        background: #f2f2f2;
-        font-family: "proxima-nova-soft", sans-serif;
-        font-size: 14px;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .post-module {
-        position: relative;
-        z-index: 1;
-        display: block;
-        background: #ffffff;
-        min-width: 270px;
-        height: 470px;
-        -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-        -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-        -webkit-transition: all 0.3s linear 0s;
-        -moz-transition: all 0.3s linear 0s;
-        -ms-transition: all 0.3s linear 0s;
-        -o-transition: all 0.3s linear 0s;
-        transition: all 0.3s linear 0s;
-      }
-      .post-module:hover,
-      .hover {
-        -webkit-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
-        -moz-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
-        box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
-      }
-      .post-module:hover .thumbnail img,
-      .hover .thumbnail img {
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        transform: scale(1.1);
-        opacity: 0.6;
-      }
-      .post-module:hover .post-content .description {
-        opacity: 1;
-        height: auto;
-      }
-      .post-module .thumbnail {
-        height: 240px;
-        overflow: hidden;
-      }
-      .post-module .thumbnail .badge {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 1;
-        background: #e74c3c;
-        width: 55px;
-        height: 55px;
-        padding: 12.5px 0;
-        -webkit-border-radius: 100%;
-        -moz-border-radius: 100%;
-        border-radius: 100%;
-        color: #ffffff;
-        font-weight: 700;
-        text-align: center;
-        -webkti-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-      .post-module .thumbnail .badge .percent {
-        font-size: 18px;
-      }
-      .post-module .thumbnail .badge .badge-title {
-        font-size: 12px;
-        text-transform: uppercase;
-      }
-      .post-module .thumbnail img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        height: 100%;
-        -webkit-transition: all 0.3s linear 0s;
-        -moz-transition: all 0.3s linear 0s;
-        -ms-transition: all 0.3s linear 0s;
-        -o-transition: all 0.3s linear 0s;
-        transition: all 0.3s linear 0s;
-      }
-      .post-module .post-content {
-        position: absolute;
-        bottom: 0;
-        background: #ffffff;
-        width: 100%;
-        padding: 30px;
-        -webkti-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-        -moz-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-        -ms-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-        -o-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-        transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-      }
-      .post-module .post-content .category {
-        position: absolute;
-        top: -34px;
-        left: 0;
-        background: #e74c3c;
-        padding: 10px 15px;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 600;
-        text-transform: uppercase;
-      }
-      .post-module .post-content .title {
-        margin: 0;
-        padding: 0 0 10px;
-        color: #333333;
-        font-size: 26px;
-        font-weight: 700;
-      }
-      .post-module .post-content .sub_title {
-        margin: 0;
-        padding: 0 0 20px;
-        color: #e74c3c;
-        font-size: 20px;
-        font-weight: 400;
-      }
-      .post-module .post-content .description {
-        color: #666666;
-        font-size: 14px;
-        line-height: 1.8em;
-        transition: opacity 1s ease-out;
-        opacity: 0;
-        height: 0;
-        overflow: hidden;
-      }
-      .post-module .post-content .post-meta {
-        margin: 30px 0 0;
-        color: #999999;
-      }
-      .post-module .post-content .post-meta .timestamp {
-        margin: 0 16px 0 0;
-      }
-      .post-module .post-content .post-meta a {
-        color: #999999;
-        text-decoration: none;
-      }
-      .hover .post-content .description {
-        display: block !important;
-        height: auto !important;
-        opacity: 1 !important;
-      }
-      .container {
-        max-width: 800px;
-        min-width: 640px;
-        margin: 0 auto;
-      }
-      .container:before,
-      .container:after {
-        content: "";
-        display: block;
-        clear: both;
-      }
-      .container .column {
-        width: 50%;
-        padding: 0 25px;
-        -webkti-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        float: left;
-      }
-      .container .column .demo-title {
-        margin: 0 0 15px;
-        color: #666666;
-        font-size: 18px;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-      .container .info {
-        width: 300px;
-        margin: 50px auto;
-        text-align: center;
-      }
-      .container .info h1 {
-        margin: 0 0 15px;
-        padding: 0;
-        font-size: 24px;
-        font-weight: bold;
-        color: #333333;
-      }
-      .container .info span {
-        color: #666666;
-        font-size: 12px;
-      }
-      .container .info span a {
-        color: #000000;
-        text-decoration: none;
-      }
-      .container .info span .fa {
-        color: #e74c3c;
-      }
-    </style>
+    <!-- CSS. Makes everything on the page look pretty.
+      Styles currently in the styles.css file -->
+      <link rel="stylesheet" href="style.css">
   </head>
   <!-- CONTENT.
     The "body" is where the browser knows to find all the stuff to display on screen -->
@@ -231,7 +36,7 @@
             </div>
             <!-- Post Content. Where we can put a description of the bot -->
             <div class="post-content">
-              <div class="category">!!!!!Some really great details 1.0</div>
+              <div class="category">More info about Amiyah...</div>
               <h2 class="title">Amiyah</h2>
               <h3 class="sub_title">Caring, compassionate, funny</h3>
               <p class="description">
@@ -247,6 +52,68 @@
         </a>
       </div>
       <!-- END AMIYAH -->
+      <!-- BLIZZARD -->
+      <div class="column">
+        <!-- Details. An 'a' tag is a webpage link.
+          Click on it and your borwser will go somewhere else.
+          the 'href' tells the browser where to go -->
+        <a href="https://blizzard.budibot.com">
+          <div class="post-module">
+            <!-- Avatar -->
+            <div class="thumbnail">
+              <img
+                src="./img/blizzard.png"
+              />
+            </div>
+            <!-- Post Content. Where we can put a description of the bot -->
+            <div class="post-content">
+              <div class="category">More info about Blizzard...</div>
+              <h2 class="title">Blizzard</h2>
+              <h3 class="sub_title">Caring, compassionate, funny</h3>
+              <p class="description">
+                This bot is here to listen and help you answer questions about troubling topics
+              </p>
+              <!-- We can add some more info to the bottom of the card if we want to-->
+              <div class="post-meta">
+                <span class="info">Blizzard is a friendly bot that is aimed at 7-18 year olds.</span>
+                <span class="info">Info 2</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- END BLIZZARD -->
+      <!-- BOB -->
+      <div class="column">
+        <!-- Details. An 'a' tag is a webpage link.
+          Click on it and your borwser will go somewhere else.
+          the 'href' tells the browser where to go -->
+        <a href="https://bob.budibot.com">
+          <div class="post-module">
+            <!-- Avatar -->
+            <div class="thumbnail">
+              <img
+                src="./img/bob.png"
+              />
+            </div>
+            <!-- Post Content. Where we can put a description of the bot -->
+            <div class="post-content">
+              <div class="category">More info about Bob...</div>
+              <h2 class="title">Bob</h2>
+              <h3 class="sub_title">Caring, compassionate, funny</h3>
+              <p class="description">
+                This bot is here to listen and help you answer questions about troubling topics
+              </p>
+              <!-- We can add some more info to the bottom of the card if we want to-->
+              <div class="post-meta">
+                <span class="info">Info 1</span>
+                <span class="info">Info 2</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- END BOB -->
     </div>
   </body>
 </html>
