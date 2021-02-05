@@ -145,7 +145,6 @@ body {
     opacity: 1 !important;
   }
   .container {
-    max-width: 800px;
     min-width: 640px;
     margin: 0 auto;
   }
@@ -156,7 +155,9 @@ body {
     clear: both;
   }
   .container .column {
-    width: 50%;
+    width: 30%;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 0 25px;
     -webkti-box-sizing: border-box;
     -moz-box-sizing: border-box;
