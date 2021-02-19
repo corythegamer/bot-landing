@@ -195,6 +195,14 @@ body {
     color: #e74c3c;
   }
 
-  footer img{
-    height: 100px
+  .footer-images{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .footer-images img{
+    height: 70px;
+  }
+  .summary{
+    text-align: center;
   }
